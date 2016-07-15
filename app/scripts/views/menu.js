@@ -4,7 +4,7 @@ import Backbone from 'backbone';
 
 import user from '../models/username';
 import orderCollection from '../collections/Orders';
-import createOrder from './createOrder';
+// import renderOrder from './renderOrder';
 // import subNav from './subNav';
 
 function renderMenu() {
@@ -32,17 +32,20 @@ function renderMenu() {
             </li>
           `);
 
-          $menuPage.find('.mealHeadings').text(location.hash.slice(6).toUpperCase());
-          if (menuItem.item === menuItem.description){
+        $menuPage.find('.mealHeadings').text(location.hash.slice(6).toUpperCase());
+        if (menuItem.item === menuItem.description) {
             $menuPage.find('ul').append($menuItem);
             $menuPage.find('.item-descritption').empty();
-          }
-          $('#menu-list').append($menuItem);
-          $menuItem.find('h3').on('click', createOrder);
-      }
+        }
+        $('#menu-list').append($menuItem);
+        $menuItem.find('h3').on('click', function() {
+            console.log();
+            // renderOrder(order);
+        });
+    }
 
     let args;
-    $.ajax({
+    let data = ({
         url: 'https://tiy-austin-front-end-engineering.github.io/restaurantApi/cafe.json',
         data: 'GET',
         success: (response) => {
@@ -54,6 +57,8 @@ function renderMenu() {
             });
         }
     });
-return $menuPage;
+    $.ajax(data);
+    console.log(data.success);
+    return $menuPage;
 }
 export default renderMenu;

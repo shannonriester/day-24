@@ -6,9 +6,9 @@ import renderHeader from './views/header';
 import renderNav from './views/nav';
 import renderSubNav from './views/subNav';
 import renderMenu from './views/menu';
-import renderOrder from './views/orderConfirmation';
+import renderOrder from './views/renderOrder';
 
-import newData from './collections/Items';
+import orderSession from './models/modelOrder';
 
 
 const Router = Backbone.Router.extend({
@@ -16,7 +16,7 @@ const Router = Backbone.Router.extend({
       login         :   'loginFunction',
       menu          :   'menuFunction',
       'menu/:meal'  :   'subNavFunction',
-      order         :   'orderFunction'
+      order         :   'confirmOrderFunction'
       // '/order/:id':   'orderFunction'
   },
 
@@ -29,6 +29,7 @@ const Router = Backbone.Router.extend({
     let $header = renderHeader();
     let $nav = renderNav();
     let $subNav = renderSubNav();
+    // let $order = renderOrder();
     $('.appContainer').empty().append($header).append($nav).append($subNav).append($menu);
   },
   subNavFunction: function(meal){
@@ -48,11 +49,11 @@ const Router = Backbone.Router.extend({
     }
     $('.appContainer').empty().append($header).append($nav).append($subNav).append($menu);
   },
-  orderFunction: function(){
+  confirmOrderFunction: function(){
     let $header = renderHeader();
     let $nav = renderNav();
-    let $orderConfirm = renderOrder();
-    $('.appContainer').empty().append($header).append($nav).append($orderConfirm);
+    // let $order = renderOrder();
+    $('.appContainer').empty().append($header).append($nav).append($order);
   }
 });
 
