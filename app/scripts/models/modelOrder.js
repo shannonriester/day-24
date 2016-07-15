@@ -9,19 +9,15 @@ const ModelOrder = Backbone.Model.extend({
   defaults: {
     username: user.username,
     timestamp: moment().format('MM Do YYYY, h:mm:ss a'),
-    items: [{
-        name: '',
-        price: 0,
-        nItems: 0,
-        id: 'id'
-    }],
+    items: [],
     tax: '',
     total: ''
   },
-  adds: function adds (){
-    let items = this.get('items') + 1;
-    this.set('items', items);
-    // this.save();
+  adds: function adds (addedItem){
+    let itemsArr = this.get('items');
+    let newItemsArr = itemsArr.concat(addedItem);
+    this.set('items', newItemsArr);
+    console.log(newItemsArr);
   }
 });
 
