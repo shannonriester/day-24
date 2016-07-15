@@ -6,18 +6,19 @@ import newData from '../collections/Items';
 import subNav from './subNav';
 
 function renderMenu() {
-    // console.log(arguments);
     let $menuPage = $(`
     <div id="menu-main">
       <h2>Our Menu</h2>
       <div class="sub-nab"></div>
       <main>
-        <h2>Apps</h2>
-        <ul></ul>
+        <h2></h2>
+        <ul id="menu-list"></ul>
       </main>
       <aside class="aside-order"><aside>
     </div>
     `);
+    let $ulContainer = $menuPage.find('ul');
+    $('.appContainer').append($ulContainer);
 
     function renderMenuItem(menuItem) {
       let $menuItem = $(`
@@ -30,11 +31,8 @@ function renderMenu() {
           </li>
         `);
         console.log($menuPage);
-        $menuPage.find('ul').append($menuItem);
+        $('#menu-list').append($menuItem);
       }
-
-    let $ulContainer = $menuPage.find('ul');
-    $('.appContainer').append($ulContainer);
 
     let args;
     $.ajax({
@@ -42,12 +40,14 @@ function renderMenu() {
         data: 'GET',
         success: (response) => {
             let args = _.toArray(arguments);
+            $('#menu-list').empty();
+
             args.forEach((currentItem) => {
+              console.log(currentItem);
                 response[currentItem].forEach(renderMenuItem);
             });
         }
     });
-$('.appContainer').append($menuPage);
 return $menuPage;
 }
 export default renderMenu;

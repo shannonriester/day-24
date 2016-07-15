@@ -30,7 +30,7 @@ const Router = Backbone.Router.extend({
     $('.appContainer').empty().append($header).append($nav).append($subNav).append($menu);
   },
   subNavFunction: function(meal){
-    let $menu = renderMenu(meal);
+    let $menu = renderMenu();
     let $header = renderHeader();
     let $subNav = renderSubNav();
 
