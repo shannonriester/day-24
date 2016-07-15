@@ -3,9 +3,9 @@ import _ from 'underscore';
 import Backbone from 'backbone';
 
 import user from '../models/username';
-
 import orderCollection from '../collections/Orders';
-import subNav from './subNav';
+import createOrder from './createOrder';
+// import subNav from './subNav';
 
 function renderMenu() {
     let $menuPage = $(`
@@ -21,32 +21,24 @@ function renderMenu() {
     `);
 
     function renderMenuItem(menuItem) {
-      let $menuItem = $(`
-          <li>
-            <h3>${menuItem.item}</h3>
-            <data>$${menuItem.price}</data>
-            <div>
-              <p class="item-descritption">${menuItem.description}</p>
-              <div class="icon-box"></div>
-            </div>
-          </li>
-        `);
+        let $menuItem = $(`
+            <li>
+              <h3>${menuItem.item}</h3>
+              <data>$${menuItem.price}</data>
+              <div>
+                <p class="item-descritption">${menuItem.description}</p>
+                <div class="icon-box"></div>
+              </div>
+            </li>
+          `);
 
-        $menuPage.find('.mealHeadings').text(location.hash.slice(6).toUpperCase());
-        if (menuItem.item === menuItem.description){
-          $menuPage.find('ul').append($menuItem);
-          $menuPage.find('.item-descritption').empty();
-        }
-        $('#menu-list').append($menuItem);
-
-        $menuItem.find('li').on('click', function(evt){
-          evt.preventDevault();
-          orderCollection.create({
-            name: user.username,
-
-          });
-
-        });
+          $menuPage.find('.mealHeadings').text(location.hash.slice(6).toUpperCase());
+          if (menuItem.item === menuItem.description){
+            $menuPage.find('ul').append($menuItem);
+            $menuPage.find('.item-descritption').empty();
+          }
+          $('#menu-list').append($menuItem);
+          $menuItem.find('h3').on('click', createOrder);
       }
 
     let args;
