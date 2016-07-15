@@ -30,19 +30,19 @@ const Router = Backbone.Router.extend({
     $('.appContainer').empty().append($header).append($nav).append($subNav).append($menu);
   },
   subNavFunction: function(meal){
-    let $menu = renderMenu();
+    let $menu = renderMenu(meal);
     let $header = renderHeader();
     let $subNav = renderSubNav();
 
     if (meal === 'breakfast') {
       $menu = renderMenu('breakfast');
-    }, else if (meal === 'lunch') {
+    } else if (meal === 'lunch') {
       $menu = renderMenu('sandwiches', 'soups', 'salads');
-    }, else if (meal === 'desserts') {
-      $menu = renderMenu('desserts', 'veradesserts')
+    } else if (meal === 'desserts') {
+      $menu = renderMenu('desserts', 'veraDesserts');
+    } else if (meal === 'extras') {
+      $menu = renderMenu('toppings', 'sides', 'drinks');
     }
-
-
     $('appContainer').empty().append($header).append($nav).append($subNav).append($menu);
   },
   orderFunction: function(){
