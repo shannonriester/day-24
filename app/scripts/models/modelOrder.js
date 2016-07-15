@@ -8,14 +8,14 @@ const modelOrder = Backbone.Model.extend({
   idAttribute: 'id',
   defaults: {
     username: user.username,
-    amount: 0
-    },
-  // like: function like(){
-  //   console.log('i like ' + this.get('title'));
-  //   var newLikes = this.get('likes') + 1;
-  //   this.set('likes', newLikes);
-  //   this.save();
-  // }
+    timestamp: moment().format('MM Do YYYY, h:mm:ss a'),
+    adds: 0
+  },
+  adds: function adds (){
+    let newAdd = this.get('adds') + 1;
+    this.set('adds', newAdd);
+    this.save();
+  }
 });
 
 export default modelOrder;

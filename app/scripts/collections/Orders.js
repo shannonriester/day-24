@@ -1,10 +1,10 @@
 import Backbone from 'backbone';
 
-import singleOrder from '../models/singleOrder';
+import modelOrder from '../models/modelOrder';
 
 const Orders = Backbone.Collection.extend({
   url: 'https://tiy-austin-front-end-engineering.github.io/restaurantApi/fancy.json',
-  model: singleOrder
+  model: modelOrder
 });
 
 let orderCollection = new Orders();

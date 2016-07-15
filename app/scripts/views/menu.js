@@ -2,7 +2,9 @@ import $ from 'jquery';
 import _ from 'underscore';
 import Backbone from 'backbone';
 
-import newData from '../collections/Items';
+import user from '../models/username';
+
+import orderCollection from '../collections/Orders';
 import subNav from './subNav';
 
 function renderMenu() {
@@ -11,27 +13,40 @@ function renderMenu() {
       <h2>Our Menu</h2>
       <div class="sub-nab"></div>
       <main>
-        <h2></h2>
+        <h2 class="mealHeadings"></h2>
         <ul id="menu-list"></ul>
       </main>
       <aside class="aside-order"><aside>
     </div>
     `);
-    let $ulContainer = $menuPage.find('ul');
-    $('.appContainer').append($ulContainer);
 
     function renderMenuItem(menuItem) {
       let $menuItem = $(`
           <li>
             <h3>${menuItem.item}</h3>
+            <data>$${menuItem.price}</data>
             <div>
-              <p>${menuItem.description}</p>
+              <p class="item-descritption">${menuItem.description}</p>
               <div class="icon-box"></div>
             </div>
           </li>
         `);
-        console.log($menuPage);
+
+        $menuPage.find('.mealHeadings').text(location.hash.slice(6).toUpperCase());
+        if (menuItem.item === menuItem.description){
+          $menuPage.find('ul').append($menuItem);
+          $menuPage.find('.item-descritption').empty();
+        }
         $('#menu-list').append($menuItem);
+
+        $menuItem.find('li').on('click', function(evt){
+          evt.preventDevault();
+          orderCollection.create({
+            name: user.username,
+
+          });
+
+        });
       }
 
     let args;
@@ -39,11 +54,10 @@ function renderMenu() {
         url: 'https://tiy-austin-front-end-engineering.github.io/restaurantApi/cafe.json',
         data: 'GET',
         success: (response) => {
+            // console.log(response.title);
             let args = _.toArray(arguments);
             $('#menu-list').empty();
-
             args.forEach((currentItem) => {
-              console.log(currentItem);
                 response[currentItem].forEach(renderMenuItem);
             });
         }

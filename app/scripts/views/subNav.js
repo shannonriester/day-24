@@ -18,7 +18,7 @@ function renderSubNav() {
         evt.preventDefault();
         let subMenuMeal = this.innerText;
         router.navigate('menu/' + subMenuMeal, {trigger: true});
-        
+
     });
 
     return $subNav;

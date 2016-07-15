@@ -3,9 +3,10 @@ import Backbone from 'backbone';
 
 import renderLogin from './views/login';
 import renderHeader from './views/header';
-import $nav from './views/nav';
+import renderNav from './views/nav';
 import renderSubNav from './views/subNav';
 import renderMenu from './views/menu';
+import renderOrder from './views/orderConfirmation';
 
 import newData from './collections/Items';
 
@@ -15,7 +16,7 @@ const Router = Backbone.Router.extend({
       login         :   'loginFunction',
       menu          :   'menuFunction',
       'menu/:meal'  :   'subNavFunction',
-      '/order'      :   'orderFunction'
+      order         :   'orderFunction'
       // '/order/:id':   'orderFunction'
   },
 
@@ -26,12 +27,14 @@ const Router = Backbone.Router.extend({
   menuFunction: function(){
     let $menu = renderMenu();
     let $header = renderHeader();
+    let $nav = renderNav();
     let $subNav = renderSubNav();
     $('.appContainer').empty().append($header).append($nav).append($subNav).append($menu);
   },
   subNavFunction: function(meal){
     let $menu = renderMenu();
     let $header = renderHeader();
+    let $nav = renderNav();
     let $subNav = renderSubNav();
 
     if (meal === 'breakfast') {
@@ -43,10 +46,13 @@ const Router = Backbone.Router.extend({
     } else if (meal === 'extras') {
       $menu = renderMenu('toppings', 'sides', 'drinks');
     }
-    $('appContainer').empty().append($header).append($nav).append($subNav).append($menu);
+    $('.appContainer').empty().append($header).append($nav).append($subNav).append($menu);
   },
   orderFunction: function(){
-
+    let $header = renderHeader();
+    let $nav = renderNav();
+    let $orderConfirm = renderOrder();
+    $('.appContainer').empty().append($header).append($nav).append($orderConfirm);
   }
 });
 

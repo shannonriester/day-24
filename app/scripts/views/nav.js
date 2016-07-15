@@ -3,7 +3,7 @@ import router from '../router';
 
 function renderNav () {
   let $nav = $(`
-      <h1>Menu</h1>
+      <h1>Shanni-Sais-Quoi</h1>
       <ul class="nav">
         <li>Menu</li>
         <li>Order</li>
