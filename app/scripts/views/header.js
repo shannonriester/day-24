@@ -1,6 +1,8 @@
 import $ from 'jquery';
 import Backbone from 'backbone';
 
+import router from '../router';
+
 function renderHeader(){
   let $header = $(`
     <header>
@@ -18,10 +20,9 @@ function renderHeader(){
     $header.find('.login-btn').on('click', function(evt) {
         evt.preventDefault();
         router.navigate('login', {trigger: true});
-        console.log(user.username, ' === user.username');
     });
 
   return $header;
 }
 
-export default $header;
+export default renderHeader;

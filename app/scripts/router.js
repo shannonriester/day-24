@@ -2,17 +2,21 @@ import $ from 'jquery';
 import Backbone from 'backbone';
 
 import renderLogin from './views/login';
-import $header from './views/header';
+import renderHeader from './views/header';
 import $nav from './views/nav';
+import renderSubNav from './views/subNav';
 import renderMenu from './views/menu';
 
-const Router = Backbone.Router.extend({
+import newData from './collections/Items';
 
+
+const Router = Backbone.Router.extend({
   routes: {
-      login       :   'loginFunction',
-      menu        :   'menuFunction',
-      '/order'    :   'orderFunction',
-      '/order/:id':   'orderFunction'
+      login         :   'loginFunction',
+      menu          :   'menuFunction',
+      'menu/:meal'  :   'subNavFunction',
+      '/order'      :   'orderFunction'
+      // '/order/:id':   'orderFunction'
   },
 
   loginFunction: function(){
@@ -21,7 +25,25 @@ const Router = Backbone.Router.extend({
   },
   menuFunction: function(){
     let $menu = renderMenu();
-    $('.appContainer').empty().append($header).append($nav).append($menu);
+    let $header = renderHeader();
+    let $subNav = renderSubNav();
+    $('.appContainer').empty().append($header).append($nav).append($subNav).append($menu);
+  },
+  subNavFunction: function(meal){
+    let $menu = renderMenu();
+    let $header = renderHeader();
+    let $subNav = renderSubNav();
+
+    if (meal === 'breakfast') {
+      $menu = renderMenu('breakfast');
+    }, else if (meal === 'lunch') {
+      $menu = renderMenu('sandwiches', 'soups', 'salads');
+    }, else if (meal === 'desserts') {
+      $menu = renderMenu('desserts', 'veradesserts')
+    }
+
+
+    $('appContainer').empty().append($header).append($nav).append($subNav).append($menu);
   },
   orderFunction: function(){
 
