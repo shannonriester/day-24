@@ -1,22 +1,22 @@
 header {
     margin: 0;
     .login-section {
-      display: flex;
-      margin: 1% 1%;
-      h2 {
-        margin: 0;
-        flex: 75;
-        font-size: 3em;
-      }
-      .login-btn {
-        flex: 25;
-        border: none;
-        background: $btnBackground;
-        color: $primary;
-        &:hover {
-          background: $btnHover;
+        display: flex;
+        margin: 1%;
+        h2 {
+            margin: 0;
+            flex: 75;
+            font-size: 3em;
         }
-      }
+        .login-btn {
+            flex: 25;
+            border: none;
+            background: $btnBackground;
+            color: $primary;
+            &:hover {
+                background: $btnHover;
+            }
+        }
     }
     .logo-section {
         background: url('https://dl.dropboxusercontent.com/u/19411356/day24/hipster.jpeg');
@@ -26,8 +26,45 @@ header {
         background-repeat: no-repeat;
     }
 }
-
 h1 {
-  margin: 1%;
-  margin-right: 0;
+    margin: 3%;
+    width: 50vw;
+    display: inline-flex;
+    justify-content: center;
+    font-weight: 100;
+    font-size: 2.5em;
+}
+ul {
+    padding: 0;
+    margin: 0;
+}
+li {
+    list-style-type: none;
+}
+ul.nav {
+    width: 40vw;
+    display: inline-flex;
+    justify-content: center;
+    font-size: 1.5em;
+    li {
+        margin: 0 1em;
+        align-items: center;
+        &:hover {
+            color: $btnBackground;
+        }
+    }
+}
+.ul-sub-nav {
+    display: flex;
+    text-align: center;
+    font-size: 1.1em;
+    border-bottom: solid 1px;
+    li {
+        align-self: center;
+        margin: 0 1em;
+        flex: 25;
+        &:hover {
+            color: $btnBackground;
+        }
+    }
 }

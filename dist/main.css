@@ -794,7 +794,7 @@ header {
   margin: 0; }
   header .login-section {
     display: flex;
-    margin: 1% 1%; }
+    margin: 1%; }
     header .login-section h2 {
       margin: 0;
       flex: 75;
@@ -814,8 +814,42 @@ header {
     background-repeat: no-repeat; }
 
 h1 {
-  margin: 1%;
-  margin-right: 0; }
+  margin: 3%;
+  width: 50vw;
+  display: inline-flex;
+  justify-content: center;
+  font-weight: 100;
+  font-size: 2.5em; }
+
+ul {
+  padding: 0;
+  margin: 0; }
+
+li {
+  list-style-type: none; }
+
+ul.nav {
+  width: 40vw;
+  display: inline-flex;
+  justify-content: center;
+  font-size: 1.5em; }
+  ul.nav li {
+    margin: 0 1em;
+    align-items: center; }
+    ul.nav li:hover {
+      color: rgba(15, 8, 75, 0.55); }
+
+.ul-sub-nav {
+  display: flex;
+  text-align: center;
+  font-size: 1.1em;
+  border-bottom: solid 1px; }
+  .ul-sub-nav li {
+    align-self: center;
+    margin: 0 1em;
+    flex: 25; }
+    .ul-sub-nav li:hover {
+      color: rgba(15, 8, 75, 0.55); }
 
 body {
   margin: 0;
