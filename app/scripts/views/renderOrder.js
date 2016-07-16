@@ -21,8 +21,6 @@ console.log(addedOrder, 'addedOrder');
      </div>
     `);
 
-    $('.appContainer').append($orderedList);
-
     addedOrder.forEach(function(item){
       let $addedItem = $(`
           <li>
@@ -31,6 +29,7 @@ console.log(addedOrder, 'addedOrder');
           <data></data>
           </li>
         `);
+        $orderedLIst.append($addedItem);
     });
 
 //add event listener on "final submit order" button and then go from there

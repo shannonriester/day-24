@@ -24,15 +24,20 @@ header {
         height: 70vh;
         background-position-y: 20%;
         background-repeat: no-repeat;
+        &:hover {
+          color: $btnBackground;
+        }
     }
 }
 h1 {
-    margin: 3%;
-    width: 50vw;
+    margin-left: 1rem;
+    width: 100%;
     display: inline-flex;
     justify-content: center;
-    font-weight: 100;
-    font-size: 2.5em;
+    font-weight: 300;
+    font-size: 3.5em;
+    position: absolute;
+    bottom: 6em;
 }
 ul {
     padding: 0;
@@ -42,15 +47,16 @@ li {
     list-style-type: none;
 }
 ul.nav {
-    width: 40vw;
+    width: 100vw;
     display: inline-flex;
     justify-content: center;
     font-size: 1.5em;
+    margin: 3% 0;
     li {
         margin: 0 1em;
         align-items: center;
         &:hover {
-            color: $btnBackground;
+            color: $background-lite;
         }
     }
 }
@@ -61,10 +67,52 @@ ul.nav {
     border-bottom: solid 1px;
     li {
         align-self: center;
-        margin: 0 1em;
+        padding: 0 1em;
         flex: 25;
         &:hover {
+            color: $background-lite;
+        }
+    }
+}
+main {
+    margin-top: 3%;
+    h2 {
+        margin: 0 0 0 1em;
+        text-align: center;
+    }
+}
+#menu-list {
+    background: $background-lite;
+    width: 60%;
+    margin: 0 auto;
+    border-radius: 2px;
+    li {
+        margin: 0;
+        padding: 2%;
+        &:hover {
             color: $btnBackground;
+            font-weight: bolder;
+            p {
+                color: $primary;
+                font-weight: normal;
+            }
+        }
+        h3 {
+            display: inline-flex;
+            margin: 0 0 0 1%;
+            font-weight: 300;
+            width: 50%;
+        }
+        data {
+            display: inline-flex;
+            justify-content: flex-end;
+            width: 45%;
+        }
+        p {
+            display: block;
+            margin: 0 0 0 2%;
+            font-style: italic;
+            align-self: flex-start;
         }
     }
 }

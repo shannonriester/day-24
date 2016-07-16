@@ -36,13 +36,12 @@ const Router = Backbone.Router.extend({
     let $header = renderHeader();
     let $nav = renderNav();
     let $subNav = renderSubNav();
-    let $sideOrder = renderOrder();
+    // let $sideOrder = renderOrder();
     //need to do:
       //on the change of the 'added orderItem'
-      orderSession.on('change', function(){
-      $('.appContainer').empty().append($header).append($nav).append($subNav).append($menu).append($sideOrder);
-    });
-
+    //   orderSession.on('change', function(){
+    //   $('.appContainer').empty().append($header).append($nav).append($subNav).append($menu).append($sideOrder);
+    // });
       //make new element to put into DOM
       //empty old orderFunction and then add the new orderFunction
 
@@ -58,7 +57,7 @@ const Router = Backbone.Router.extend({
     } else if (meal === 'extras') {
       $menu = renderMenu('toppings', 'sides', 'drinks');
     }
-    $('.appContainer').empty().append($header).append($nav).append($subNav).append($menu).append($sideOrder);
+    $('.appContainer').empty().append($header).append($nav).append($subNav).append($menu)/*.append($sideOrder);*/
   },
   confirmOrderFunction: function(){
     let $header = renderHeader();

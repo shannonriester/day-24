@@ -11,7 +11,6 @@ import renderOrder from './renderOrder';
 function renderMenu() {
     let $menuPage = $(`
     <div id="menu-main">
-      <h2>Our Menu</h2>
       <section></section>
       <div class="sub-nab"></div>
       <main>
@@ -25,8 +24,8 @@ function renderMenu() {
     function renderMenuItem(orderItem) {
         let $menuItem = $(`
             <li>
-              <h3>${orderItem.item}</h3>
-              <data>$${orderItem.price}</data>
+              <h3>${orderItem.item} - </h3>
+              <data>$${orderItem.price}.00</data>
               <div>
                 <p class="item-descritption">${orderItem.description}</p>
                 <div class="icon-box"></div>
@@ -35,15 +34,19 @@ function renderMenu() {
           `);
 
         $menuPage.find('.mealHeadings').text(location.hash.slice(6).toUpperCase());
-        if (orderItem.item === orderItem.description) {
-            $menuPage.find('ul').append($menuItem);
-            $menuPage.find('.item-descritption').empty();
-        }
 
+        // if (orderItem.item !== orderItem.description) {
+        //
+        //
+        // } else if (orderItem.item === orderItem.description) {
+        //     $menuPage.find('ul').append($menuItem);
+        //     $menuPage.find('.item-descritption').empty();
+        //     $('#menu-list').append($menuItem);
+        // }
+
+        $menuPage.find('ul').append($menuItem);
         $('#menu-list').append($menuItem);
-
         $menuItem.find('h3').on('click', function() {
-            // console.log('you chose an item!', orderItem);
             orderSession.adds(orderItem);
             renderOrder(orderItem);
         });
