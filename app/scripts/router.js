@@ -57,17 +57,9 @@ const Router = Backbone.Router.extend({
     //need to do:
       //on the change of the 'added orderItem'
       orderSession.on('change', function(){
-        console.log($sideOrder, '  before');
-        $sideOrder.empty();
-        console.log($sideOrder, '  after');
         let $newSideOrder = renderOrder();
         // console.log($newSideOrder, ' === $newSideOrder');
-        $('.appContainer').empty()
-                          .append($header)
-                          .append($nav)
-                          .append($subNav)
-                          .append($menu)
-                          .append($newSideOrder);
+        $sideOrder.replaceWith($newSideOrder);
     });
       //make new element to put into DOM
       //empty old orderFunction and then add the new orderFunction

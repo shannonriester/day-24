@@ -7,7 +7,6 @@ import orderCollection from '../collections/Orders';
 import orderSession from '../models/modelOrder';
 import renderOrder from './renderOrder';
 
-
 function renderMenu() {
     let $menuPage = $(`
     <div id="menu-main">
@@ -35,8 +34,6 @@ function renderMenu() {
 
         $menuPage.find('.mealHeadings').text(location.hash.slice(6).toUpperCase());
         // if (orderItem.item !== orderItem.description) {
-        //
-        //
         // } else if (orderItem.item === orderItem.description) {
         //     $menuPage.find('ul').append($menuItem);
         //     $menuPage.find('.item-descritption').empty();
@@ -44,10 +41,10 @@ function renderMenu() {
         // }
 
         $menuPage.find('ul').append($menuItem);
-        $('#menu-list').append($menuItem);
-        $menuItem.find('h3').on('click', function() {
+        $menuItem.on('click', function() {
+            console.log('hi there shanny :)');
             orderSession.addItem(orderItem);
-            renderOrder(orderItem);
+            // renderOrder(orderItem);
         });
     }
 
@@ -65,7 +62,7 @@ function renderMenu() {
         }
     });
     $.ajax(data);
-    // console.log(data.success);
+
     return $menuPage;
 }
 export default renderMenu;

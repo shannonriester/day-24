@@ -23,8 +23,8 @@ const ModelOrder = Backbone.Model.extend({
 ModelOrder.prototype.addItem = function(addedItem){
   let itemsArr = this.get('items');
   let newItemsArr = itemsArr.concat(addedItem);
-  // console.log(newItemsArr);
   this.set('items', newItemsArr);
+  console.log(newItemsArr);
   // this.update('items', newItemsArr);
 };
 
