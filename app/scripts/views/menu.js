@@ -46,7 +46,7 @@ function renderMenu() {
         $menuPage.find('ul').append($menuItem);
         $('#menu-list').append($menuItem);
         $menuItem.find('h3').on('click', function() {
-            orderSession.adds(orderItem);
+            orderSession.addItem(orderItem);
             renderOrder(orderItem);
         });
     }

@@ -1,15 +1,15 @@
 import $ from 'jquery';
 import Backbone from 'backbone';
 
+// import router from '../router';
 import orderSession from '../models/modelOrder';
 import renderMenu from './menu';
 import user from '../models/username';
 
 function renderOrder(addedOrder){
-  let menuItem = orderSession['attributes'];
+  console.log(addedOrder);
+  let menuItems = orderSession.get('items');
 
-    //the array of objects:
-  let menuItemsArr = menuItem.items;
   let $orderedList = $(`
     <div class="side-order">
         <h4>Your Order: </h4>
@@ -22,18 +22,23 @@ function renderOrder(addedOrder){
         </ul>
      </div>
     `);
+    // let newOrder = new ModelOrder({
+    //   customer: user.username,
+    //   id: item.id,
+    //   itemName: item.item,
+    //   price: item.price
+    // });
 
-    menuItemsArr.forEach(function(item){
-      console.log(item);
-      let $addedMenuItem = $(`
-          <li>
-          <h5>${item.item}</h5>
-          <data>${item.price}</data>
-          <data></data>
-          </li>
-        `);
-        $orderedList.append($addedItem);
-    });
+    // menuItems.forEach(function(item){
+    //   let $addedItem = $(`
+    //       <li>
+    //       <h5>${item.item}</h5>
+    //       <data>${item.price}</data>
+    //       <data>Quantity: </data>
+    //       </li>
+    //     `);
+    //     $orderedList.append($addedItem);
+    // });
 
 //add event listener on "final submit order" button and then go from there
 
@@ -56,7 +61,7 @@ function renderOrder(addedOrder){
     //   }
     // });
 
-  // return orderBox;
+  return $orderedList;
 }
 
 
