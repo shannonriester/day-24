@@ -6,21 +6,23 @@ import renderMenu from './menu';
 import user from '../models/username';
 
 function renderOrder(addedOrder){
+console.log(addedOrder, 'addedOrder');
 
-
-console.log(addedOrder);
-  let orderBox = $(`
+  let $orderedList = $(`
     <div class="side-order">
-        <h4>Your Order: ${user.username}</h4>
+        <h4>Your Order: </h4>
         <ul>
           <li class="order-footer">
-            <p class="order-price tax-price">${addedOrder.tax}</p>
-            <p class="order-price total-price">${addedOrder.total}</p>
+            <p class="order-price tax-price"></p>
+            <p class="order-price total-price"></p>
             <input type="button" name="place order" />
           </li>
         </ul>
      </div>
     `);
+
+    $('.appContainer').append($orderedList);
+
     addedOrder.forEach(function(item){
       let $addedItem = $(`
           <li>
@@ -42,17 +44,17 @@ console.log(addedOrder);
     // orderLIst.on('change', function(){
     //
     // });
+    //
+    // order.save(null, {
+    //   success: function(response) {
+    //     console.log('you added an item!');
+    //   },
+    //   error: function(){
+    //     console.log('error occured!');
+    //   }
+    // });
 
-    order.save(null, {
-      success: function(response) {
-        console.log('you added an item!');
-      },
-      error: function(){
-        console.log('error occured!');
-      }
-    });
-
-  return orderBox;
+  // return orderBox;
 }
 
 

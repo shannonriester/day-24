@@ -10,18 +10,27 @@ function renderLogin() {
       <div class="login-modal">
         <h1>Shanni-Sais-Quoi</h1>
         <input id="input-username" type="text" name="username" placeholder="username..." />
-        <input id="enter-btn" type="button" name="enter" value="enter" />
+        <input id="enter-btn" class="go-to-menu" type="button" name="enter" value="enter" />
         <input id="sign-up-btn" type="button" name="sign up" value="sign up" />
-        <input type="button" name="skip..." value="skip..." />
+        <input id="skip..." class="go-to-menu" type="button" name="skip..." value="skip..." />
       </div>
     </div>
 `);
 
-    $login.find('#enter-btn').on('click', function(evt) {
+    $login.find('.go-to-menu').on('click', function(evt) {
         evt.preventDefault();
+        // if (user.username.val(' ')){
+          // $login.shake();
+        // }
         user.username = $('#input-username').val();
         $('input-username').val('');
         router.navigate('menu', {trigger: true});
+        console.log(user.username, ' === user.username');
+    });
+    $login.find('#sign-up-btn').on('click', function(evt) {
+        evt.preventDefault();
+        $('input-username').val('');
+        router.navigate('register', {trigger: true});
         console.log(user.username, ' === user.username');
     });
 

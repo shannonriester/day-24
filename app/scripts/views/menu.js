@@ -12,6 +12,7 @@ function renderMenu() {
     let $menuPage = $(`
     <div id="menu-main">
       <h2>Our Menu</h2>
+      <section></section>
       <div class="sub-nab"></div>
       <main>
         <h2 class="mealHeadings"></h2>
@@ -22,7 +23,6 @@ function renderMenu() {
     `);
 
     function renderMenuItem(orderItem) {
-
         let $menuItem = $(`
             <li>
               <h3>${orderItem.item}</h3>
@@ -39,12 +39,12 @@ function renderMenu() {
             $menuPage.find('ul').append($menuItem);
             $menuPage.find('.item-descritption').empty();
         }
+
         $('#menu-list').append($menuItem);
 
         $menuItem.find('h3').on('click', function() {
-            // let newOrder = orderSession;
             // console.log('you chose an item!', orderItem);
-            console.log(orderSession.adds(orderItem));
+            orderSession.adds(orderItem);
             renderOrder(orderItem);
         });
     }

@@ -7,7 +7,6 @@ import renderNav from './views/nav';
 import renderSubNav from './views/subNav';
 import renderMenu from './views/menu';
 import renderOrder from './views/renderOrder';
-
 import orderSession from './models/modelOrder';
 
 
@@ -40,18 +39,14 @@ const Router = Backbone.Router.extend({
     let $sideOrder = renderOrder();
     //need to do:
       //on the change of the 'added orderItem'
-      orderSession.on('change', funtion(){
-      $('.appContainer').empty()
-                        .append($header)
-                        .append($nav)
-                        .append($subNav)
-                        .append($menu)
-                        .append($sideOrder);
+      orderSession.on('change', function(){
+      $('.appContainer').empty().append($header).append($nav).append($subNav).append($menu).append($sideOrder);
+    });
 
       //make new element to put into DOM
       //empty old orderFunction and then add the new orderFunction
 
-  });
+
           //render order needs to listen for the change when you hit confirmation's submit button
 
     if (meal === 'breakfast') {

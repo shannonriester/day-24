@@ -12,7 +12,6 @@ function renderHeader(){
       </section>
 
       <section class="logo-section">
-        <img sr="#" />
       </section>
     </header>
     `);

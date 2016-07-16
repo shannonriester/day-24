@@ -1,0 +1,33 @@
+header {
+    margin: 0;
+    .login-section {
+      display: flex;
+      margin: 1% 1%;
+      h2 {
+        margin: 0;
+        flex: 75;
+        font-size: 3em;
+      }
+      .login-btn {
+        flex: 25;
+        border: none;
+        background: $btnBackground;
+        color: $primary;
+        &:hover {
+          background: $btnHover;
+        }
+      }
+    }
+    .logo-section {
+        background: url('https://dl.dropboxusercontent.com/u/19411356/day24/hipster.jpeg');
+        background-size: cover;
+        height: 70vh;
+        background-position-y: 20%;
+        background-repeat: no-repeat;
+    }
+}
+
+h1 {
+  margin: 1%;
+  margin-right: 0;
+}

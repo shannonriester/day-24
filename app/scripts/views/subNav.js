@@ -6,7 +6,7 @@ import user from '../models/username';
 
 function renderSubNav() {
     let $subNav = $(`
-      <ul id="ul-sub-nav">
+      <ul class="ul-sub-nav">
         <li class="liSubNav">breakfast</li>
         <li class="liSubNav">lunch</li>
         <li class="liSubNav">desserts</li>
