@@ -6,7 +6,9 @@ import renderMenu from './menu';
 import user from '../models/username';
 
 function renderOrder(addedOrder){
-console.log(addedOrder, 'addedOrder');
+let menuItem = orderSession['attributes'];
+console.log(menuItem, ' === orderSession item that was selected');
+
 
   let $orderedList = $(`
     <div class="side-order">
@@ -21,16 +23,16 @@ console.log(addedOrder, 'addedOrder');
      </div>
     `);
 
-    addedOrder.forEach(function(item){
-      let $addedItem = $(`
-          <li>
-          <h5>${item.item}</h5>
-          <data>${item.price}</data>
-          <data></data>
-          </li>
-        `);
-        $orderedLIst.append($addedItem);
-    });
+    // addedOrder.forEach(function(item){
+    //   let $addedItem = $(`
+    //       <li>
+    //       <h5>${item.item}</h5>
+    //       <data>${item.price}</data>
+    //       <data></data>
+    //       </li>
+    //     `);
+    //     $orderedLIst.append($addedItem);
+    // });
 
 //add event listener on "final submit order" button and then go from there
 

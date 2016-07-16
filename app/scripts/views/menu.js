@@ -34,7 +34,6 @@ function renderMenu() {
           `);
 
         $menuPage.find('.mealHeadings').text(location.hash.slice(6).toUpperCase());
-
         // if (orderItem.item !== orderItem.description) {
         //
         //
