@@ -42,9 +42,7 @@ function renderMenu() {
 
         $menuPage.find('ul').append($menuItem);
         $menuItem.on('click', function() {
-            console.log('hi there shanny :)');
             orderSession.addItem(orderItem);
-            // renderOrder(orderItem);
         });
     }
 

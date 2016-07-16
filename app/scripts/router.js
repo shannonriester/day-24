@@ -1,5 +1,6 @@
 import $ from 'jquery';
 import Backbone from 'backbone';
+import moment from 'moment';
 
 import renderLogin from './views/login';
 import renderHeader from './views/header';
@@ -38,15 +39,21 @@ const Router = Backbone.Router.extend({
     let $subNav = renderSubNav();
     let $sideOrder = renderOrder();
 
-    if (meal === 'breakfast') {
-      $menu = renderMenu('breakfast');
-    } else if (meal === 'lunch') {
-      $menu = renderMenu('sandwiches', 'soups', 'salads');
-    } else if (meal === 'desserts') {
-      $menu = renderMenu('desserts', 'veraDesserts');
-    } else if (meal === 'extras') {
-      $menu = renderMenu('toppings', 'sides', 'drinks');
-    }
+      if (moment().format('a') === 'am'){
+        renderMenu('breakfast');
+      } else {
+        renderMenu('lunch');
+      }
+
+      if (meal === 'breakfast') {
+        $menu = renderMenu('breakfast');
+      } else if (meal === 'lunch') {
+        $menu = renderMenu('sandwiches', 'soups', 'salads');
+      } else if (meal === 'desserts') {
+        $menu = renderMenu('desserts', 'veraDesserts');
+      } else if (meal === 'extras') {
+        $menu = renderMenu('toppings', 'sides', 'drinks');
+      }
     $('.appContainer').empty()
                       .append($header)
                       .append($nav)

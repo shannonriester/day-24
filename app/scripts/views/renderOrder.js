@@ -1,7 +1,6 @@
 import $ from 'jquery';
 import Backbone from 'backbone';
 
-// import router from '../router';
 import orderSession from '../models/modelOrder';
 import renderMenu from './menu';
 import user from '../models/username';
