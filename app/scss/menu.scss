@@ -76,15 +76,23 @@ ul.nav {
 }
 main {
     margin-top: 3%;
+    width: 60%;
+    margin: 0 auto;
+    float: left;
     h2 {
         margin: 0 0 0 1em;
         text-align: center;
     }
 }
+#aside-order {
+  display: inline-flex;
+  bottom: 50em;
+  left: 25em;
+}
 #menu-list {
     background: $background-lite;
-    width: 60%;
-    margin: 0 auto;
+    // width: 60%;
+    // margin: 0 auto;
     border-radius: 2px;
     li {
         margin: 0;

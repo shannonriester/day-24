@@ -19,12 +19,13 @@ function renderMenu() {
       <aside class="aside-order"><aside>
     </div>
     `);
+    // $('.aside-order').css('display', 'none');
 
     function renderMenuItem(orderItem) {
         let $menuItem = $(`
             <li>
               <h3>${orderItem.item} - </h3>
-              <data>$${orderItem.price}.00</data>
+              <data>$${orderItem.price/*.toFixed(2)*/}</data>
               <div>
                 <p class="item-descritption">${orderItem.description}</p>
                 <div class="icon-box"></div>
@@ -51,8 +52,9 @@ function renderMenu() {
         url: 'https://tiy-austin-front-end-engineering.github.io/restaurantApi/cafe.json',
         data: 'GET',
         success: (response) => {
-            // console.log(response.title);
+            // console.log(response);
             let args = _.toArray(arguments);
+            // console.log(args);
             $('#menu-list').empty();
             args.forEach((currentItem) => {
                 response[currentItem].forEach(renderMenuItem);

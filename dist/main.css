@@ -857,15 +857,21 @@ ul.nav {
       color: #566db0; }
 
 main {
-  margin-top: 3%; }
+  margin-top: 3%;
+  width: 60%;
+  margin: 0 auto;
+  float: left; }
   main h2 {
     margin: 0 0 0 1em;
     text-align: center; }
 
+#aside-order {
+  display: inline-flex;
+  bottom: 50em;
+  left: 25em; }
+
 #menu-list {
   background: #566db0;
-  width: 60%;
-  margin: 0 auto;
   border-radius: 2px; }
   #menu-list li {
     margin: 0;

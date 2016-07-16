@@ -6,32 +6,35 @@ import renderMenu from './menu';
 import user from '../models/username';
 
 function renderOrder(addedOrder){
-  let menuItems = orderSession.get('items');
-  console.log(addedOrder);
+    let menuItems = orderSession.get('items');
+    console.log(menuItems);
+    let $orderedList = $(`
+      <div class="side-order">
+          <h4>Your Order: </h4>
+          <ul>
 
-  let $orderedList = $(`
-    <div class="side-order">
-        <h4>Your Order: </h4>
-        <ul>
-          <li class="order-li-footer">
+          </ul>
+          <div class="order-totals">
             <p class="order-price tax-price"></p>
             <p class="order-price total-price"></p>
-            <input type="button" name="place order" />
-          </li>
-        </ul>
-     </div>
-    `);
+          </div>
+          <input type="button" name="place order" />
+       </div>
+      `);
 
-    menuItems.forEach(function(item){
-      let $addedItem = $(`
-          <li>
-          <h5>${item.item}</h5>
-          <data>${item.price}</data>
-          <data>Quantity: </data>
-          </li>
-        `);
-        $orderedList.append($addedItem);
-    });
+      menuItems.forEach(function(item, i){
+        let $addedItem = $(`
+            <li>
+              <h5>${item.item}</h5>
+              <data>$${item.price/*.toFixed(2)*/}</data>
+            </li>
+          `);
+          $orderedList.find('ul').append($addedItem);
+      });
+      // console.log($('.aside-order'));
+      // console.log($orderedList);
+      // $('.aside-order').append($orderedList);
+
 
 //add event listener on "final submit order" button and then go from there
 
@@ -61,7 +64,8 @@ function renderOrder(addedOrder){
     //   }
     // });
 
-  return $orderedList;
+    return $orderedList;
+
 }
 
 

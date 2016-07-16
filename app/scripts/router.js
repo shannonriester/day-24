@@ -13,6 +13,7 @@ import orderSession from './models/modelOrder';
 
 const Router = Backbone.Router.extend({
   routes: {
+      '/*'          :   'menuFunction',
       login         :   'loginFunction',
       menu          :   'menuFunction',
       'menu/:meal'  :   'subNavFunction',
@@ -25,12 +26,11 @@ const Router = Backbone.Router.extend({
     $('.appContainer').empty().append($login);
   },
   menuFunction: function(){
-    let $menu = renderMenu();
-    let $header = renderHeader();
-    let $nav = renderNav();
-    let $subNav = renderSubNav();
-    let $order = renderOrder();
-    $('.appContainer').empty().append($header).append($nav).append($subNav).append($menu);
+    if (moment().format('a') === 'am'){
+      router.navigate('menu/breakfast', {trigger:true});
+    } else {
+      router.navigate('menu/lunch', {trigger:true});
+    }
   },
   subNavFunction: function(meal){
     let $menu = renderMenu();
@@ -39,11 +39,7 @@ const Router = Backbone.Router.extend({
     let $subNav = renderSubNav();
     let $sideOrder = renderOrder();
 
-      if (moment().format('a') === 'am'){
-        renderMenu('breakfast');
-      } else {
-        renderMenu('lunch');
-      }
+
 
       if (meal === 'breakfast') {
         $menu = renderMenu('breakfast');
@@ -65,13 +61,12 @@ const Router = Backbone.Router.extend({
       //on the change of the 'added orderItem'
       orderSession.on('change', function(){
         let $newSideOrder = renderOrder();
-        // console.log($newSideOrder, ' === $newSideOrder');
-        $sideOrder.replaceWith($newSideOrder);
+        console.log($newSideOrder, ' === $newSideOrder');
+        // console.log($sideOrder);
+        $('.side-order').replaceWith($newSideOrder);
     });
       //make new element to put into DOM
       //empty old orderFunction and then add the new orderFunction
-
-
           //render order needs to listen for the change when you hit confirmation's submit button
 
 
