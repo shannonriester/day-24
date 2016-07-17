@@ -812,8 +812,6 @@ header {
     height: 70vh;
     background-position-y: 20%;
     background-repeat: no-repeat; }
-    header .logo-section:hover {
-      color: rgba(15, 8, 75, 0.55); }
 
 h1 {
   margin-left: 1rem;
@@ -917,6 +915,34 @@ main {
       margin: 0 0 0 2%;
       font-style: italic;
       align-self: flex-start; }
+
+#order-confirmation-pg {
+  width: 60vw;
+  display: block;
+  float: left;
+  margin-left: 1%; }
+  #order-confirmation-pg .confirm-order {
+    width: 60vw;
+    margin-bottom: 5%; }
+  #order-confirmation-pg .order-form {
+    margin-top: 2%;
+    margin-bottom: 5%; }
+  #order-confirmation-pg input {
+    width: 95%; }
+  #order-confirmation-pg .orderform-btns {
+    display: flex;
+    justify-content: center; }
+  #order-confirmation-pg button {
+    width: 30%;
+    color: #E5EAFA;
+    background: rgba(15, 8, 75, 0.55);
+    border: none;
+    padding: 3%;
+    margin: 0 5%; }
+    #order-confirmation-pg button:hover {
+      background: rgba(15, 8, 75, 0.35); }
+  #order-confirmation-pg textarea {
+    width: 95%; }
 
 body {
   margin: 0;
