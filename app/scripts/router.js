@@ -21,7 +21,7 @@ const Router = Backbone.Router.extend({
       menu          :   'menuFunction',
       'menu/:meal'  :   'subNavFunction',
       order         :   'confirmOrderFunction'
-      // '/order/:id':   'orderFunction'
+      // '/order/:id'  :   'orderFunction'
   },
 
   loginFunction: function(){
@@ -41,7 +41,6 @@ const Router = Backbone.Router.extend({
     let $nav = renderNav();
     let $subNav = renderSubNav();
     let $sideOrder = renderOrder();
-
       if (meal === 'breakfast') {
         $menu = renderMenu('breakfast');
       } else if (meal === 'lunch') {
@@ -57,31 +56,24 @@ const Router = Backbone.Router.extend({
                       .append($subNav)
                       .append($menu)
                       .append($sideOrder);
-    // stickyScroll();
 
-
-    //   orderSession.on('change', function(){
-    //     let $newSideOrder = renderOrder();
-    //     $('.side-order').replaceWith($newSideOrder);
-    // });
-
+      orderSession.on('change', function(){
+      let $newSideOrder = renderOrder();
+      $('.side-order').replaceWith($newSideOrder);
+  });
   },
   confirmOrderFunction: function(){
     let $header = renderHeader();
     let $nav = renderNav();
-    // let $sideOrder = renderOrder();
     let $order = renderOrder();
     let $orderForm = renderConfirmation();
     $('.appContainer').empty().append($header).append($nav).append($order).append($orderForm);
     $('#orderBtn').css('display', 'none');
-
-
+    $('#ordered-list').addClass('.confirmation-view');
     orderSession.on('change', function(){
       let $newSideOrder = renderOrder();
       $('#ordered-list').replaceWith($newSideOrder);
     });
-    $('.side-order').addClass('confirmation-view');
-    // $('.side-order').removeClass('side-order');
   }
 });
 

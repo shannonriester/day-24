@@ -18,7 +18,6 @@ function renderMenu() {
       <aside class="aside-order"><aside>
     </div>
     `);
-    // $('.aside-order').css('display', 'none');
     function renderMenuItem(orderItem) {
         let $menuItem = $(`
             <li>

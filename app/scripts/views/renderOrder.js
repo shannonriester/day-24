@@ -26,6 +26,7 @@ function renderOrder(addedOrder){
         let $addedItem = $(`
             <li>
               <h5>${item.item}</h5>
+              <data></data>
               <data>$${Number(item.price).toFixed(2)}</data>
             </li>
           `);
@@ -36,7 +37,6 @@ function renderOrder(addedOrder){
         router.navigate('order', {trigger: true});
         // orderSession.save();
       });
-
   return $orderedList;
 }
 
