@@ -7,7 +7,7 @@ import orderSession from '../models/modelOrder';
 import renderMenu from './menu';
 import user from '../models/username';
 
-function renderOrder(addedOrder){
+function renderOrder(addedOrder) {
     let menuItems = orderSession.get('items');
     let $orderedList = $(`
       <div id="ordered-list" class="side-order">
@@ -22,22 +22,32 @@ function renderOrder(addedOrder){
        </div>
       `);
 
-      menuItems.forEach(function(item){
+    menuItems.forEach(function(item, i) {
         let $addedItem = $(`
             <li>
+              <i class="fa fa-trash trashIcon" aria-hidden="true"></i>
               <h5>${item.item}</h5>
               <data></data>
               <data>$${Number(item.price).toFixed(2)}</data>
             </li>
           `);
-          $orderedList.find('ul').append($addedItem);
-      });
+        $orderedList.find('ul').append($addedItem);
+        $orderedList.find('.trashIcon').on('click', () => {
+            orderSession.addItem(item);
+            orderSession.addTax();
+            orderSession.addTotal();
+            orderSession.deleteItem(item, i);
+        });
+    });
 
-      $orderedList.find('#orderBtn').on('click', function(){
-        router.navigate('order', {trigger: true});
-        // orderSession.save();
-      });
-  return $orderedList;
+
+
+    $orderedList.find('#orderBtn').on('click', function() {
+        router.navigate('order', {
+            trigger: true
+        });
+    });
+    return $orderedList;
 }
 
 export default renderOrder;

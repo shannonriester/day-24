@@ -23,6 +23,7 @@ function renderMenu() {
             <li>
               <h3>${orderItem.item} - </h3>
               <data class="data-prices">$${Number(orderItem.price).toFixed(2)}</data>
+              <i class="fa fa-plus plusIconRight" aria-hidden="true"></i>
               <div>
                 <p class="item-descritption">${orderItem.description}</p>
                 <div class="icon-box">
@@ -39,12 +40,13 @@ function renderMenu() {
               </select>
           `);
           }
-          // console.log($('select[name="select"]'));
 
+        let $addIcon = $menuItem.find('.plusIconRight');
         $menuPage.find('.mealHeadings').text(location.hash.slice(6).toUpperCase());
         $menuPage.find('ul').append($menuItem);
-        $menuItem.on('click', function() {
+        $addIcon.on('click', function() {
             orderSession.addItem(orderItem);
+            // orderSession.deleteItem()
             orderSession.addTax();
             orderSession.addTotal();
         });

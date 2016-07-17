@@ -19,7 +19,6 @@ const ModelOrder = Backbone.Model.extend({
 ModelOrder.prototype.addItem = function(addedItem){
   let itemsArr = this.get('items');
   // let nAmount = 0;
-  //
   // if (_.contains(itemsArr, addedItem)) {
   //     nAmount = this.get('items') + 1;
   //     this.set('nAmount', newAmount);
@@ -28,9 +27,11 @@ ModelOrder.prototype.addItem = function(addedItem){
   let newItemsArr = itemsArr.concat(addedItem);
   this.set('items', newItemsArr);
 };
-ModelOrder.prototype.deleteItem = function(addedItem){
-  console.log(addedItem);
+
+ModelOrder.prototype.deleteItem = function(addedItem,i){
   let itemsArr = this.get('items');
+  itemsArr.splice(i);
+  this.set('items', itemsArr);
 };
 
 ModelOrder.prototype.addTax = function(){
@@ -41,6 +42,7 @@ ModelOrder.prototype.addTax = function(){
     this.set('tax', newTax);
   });
 };
+
 ModelOrder.prototype.addTotal = function(){
   let newTotal = 0;
   let itemsArr = this.get('items');

@@ -103,11 +103,17 @@ main {
   h5 {
     margin: 0;
     display: inline-flex;
-    width: 90%;
+    width: 75%;
   }
   data {
     display: inline-flex;
     justify-content: flex-end;
+  }
+  .trashIcon {
+    margin: 0 1%;
+    &:hover {
+      font-size: 1.2rem;
+    }
   }
   #orderBtn {
     width: 100%;
@@ -131,14 +137,18 @@ main {
         }
         h3 {
             display: inline-flex;
-            margin: 0 0 0 1%;
+            margin: 0;
             font-weight: 300;
             width: 50%;
         }
         data {
             display: inline-flex;
             justify-content: flex-end;
-            width: 45%;
+            width: 37%;
+        }
+        .plusIconRight {
+            display: inline-flex;
+            margin: 0 1%;
         }
         p {
             display: block;
