@@ -1,8 +1,9 @@
 import $ from 'jquery';
 
+import renderOrder from './renderOrder';
 // import renderMenu from './menu';
 
-function renderOrder(){
+function renderConfirmation(){
   let $orderForm = $(`
     <div id="order-confirmation-pg">
       <form class="order-form">
@@ -12,26 +13,14 @@ function renderOrder(){
         <input class="order-form-inputs" type="text" name="address" placeholder="address" />
         <textarea name="special instructions" rows="8" cols="40"></textarea>
       </form>
-
-      <div class="side-order confirm-order">
-        <h4>Your Order</h4>
-           <ul>
-             <li>Item1:</li>
-             <li>Item2:</li>
-             <li class="order-footer">
-               <p class="order-price tax-price"></p>
-               <p class="order-price total-price"></p>
-               <input type="button" name="place order" value="place order" />
-               <input type="button" name="start over" value="start over" />
-             </li>
-           </ul>
-      </div>
-    </div>
     `);
 
 
+    $orderForm.find('#orderBtn').empty().on('click', function(){
+      orderSession.save();
+      });
 
   return $orderForm;
 }
 
-export default renderOrder;
+export default renderConfirmation;

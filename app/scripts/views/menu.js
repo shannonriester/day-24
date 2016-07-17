@@ -6,12 +6,11 @@ import user from '../models/username';
 import orderCollection from '../collections/Orders';
 import orderSession from '../models/modelOrder';
 import renderOrder from './renderOrder';
+import stickyScroll from './scrollSideOrder.js';
 
 function renderMenu() {
     let $menuPage = $(`
     <div id="menu-main">
-      <section></section>
-      <div class="sub-nab"></div>
       <main>
         <h2 class="mealHeadings"></h2>
         <ul id="menu-list"></ul>
@@ -25,36 +24,37 @@ function renderMenu() {
         let $menuItem = $(`
             <li>
               <h3>${orderItem.item} - </h3>
-              <data>$${orderItem.price/*.toFixed(2)*/}</data>
+              <data class="data-prices">$${Number(orderItem.price).toFixed(2)}</data>
               <div>
                 <p class="item-descritption">${orderItem.description}</p>
-                <div class="icon-box"></div>
+                <div class="icon-box">
+                </div>
               </div>
             </li>
           `);
+          if (isNaN(orderItem.price)){
+            $menuItem.find('data').html(`
+              <span>small: $${_.toArray(orderItem.price)[0]} </span>
+              <span> <br>large: $${_.toArray(orderItem.price)[1]}</span>
+          `);
+          } else {
+
+          }
 
         $menuPage.find('.mealHeadings').text(location.hash.slice(6).toUpperCase());
-        // if (orderItem.item !== orderItem.description) {
-        // } else if (orderItem.item === orderItem.description) {
-        //     $menuPage.find('ul').append($menuItem);
-        //     $menuPage.find('.item-descritption').empty();
-        //     $('#menu-list').append($menuItem);
-        // }
-
         $menuPage.find('ul').append($menuItem);
         $menuItem.on('click', function() {
             orderSession.addItem(orderItem);
+            orderSession.addTax();
+            orderSession.addTotal();
         });
     }
-
     let args;
     let data = ({
         url: 'https://tiy-austin-front-end-engineering.github.io/restaurantApi/cafe.json',
         data: 'GET',
         success: (response) => {
-            // console.log(response);
             let args = _.toArray(arguments);
-            // console.log(args);
             $('#menu-list').empty();
             args.forEach((currentItem) => {
                 response[currentItem].forEach(renderMenuItem);

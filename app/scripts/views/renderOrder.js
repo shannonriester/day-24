@@ -1,5 +1,7 @@
 import $ from 'jquery';
+import _ from 'underscore';
 import Backbone from 'backbone';
+import router from '../router';
 
 import orderSession from '../models/modelOrder';
 import renderMenu from './menu';
@@ -7,66 +9,36 @@ import user from '../models/username';
 
 function renderOrder(addedOrder){
     let menuItems = orderSession.get('items');
-    console.log(menuItems);
     let $orderedList = $(`
-      <div class="side-order">
+      <div class="side-order confirm-order">
           <h4>Your Order: </h4>
           <ul>
 
           </ul>
           <div class="order-totals">
-            <p class="order-price tax-price"></p>
-            <p class="order-price total-price"></p>
+            <p class="order-price tax-price">${orderSession.get('tax').toFixed(2)}</p>
+            <p class="order-price total-price">${orderSession.get('total').toFixed(2)}</p>
           </div>
-          <input type="button" name="place order" />
+          <input id="orderBtn" type="button" name="place order" value="place order..." />
        </div>
       `);
 
-      menuItems.forEach(function(item, i){
+      menuItems.forEach(function(item){
         let $addedItem = $(`
             <li>
               <h5>${item.item}</h5>
-              <data>$${item.price/*.toFixed(2)*/}</data>
+              <data>$${Number(item.price).toFixed(2)}</data>
             </li>
           `);
           $orderedList.find('ul').append($addedItem);
       });
-      // console.log($('.aside-order'));
-      // console.log($orderedList);
-      // $('.aside-order').append($orderedList);
 
+      $orderedList.find('#orderBtn').on('click', function(){
+        router.navigate('order', {trigger: true});
+        // orderSession.save();
+      });
 
-//add event listener on "final submit order" button and then go from there
-
-// let newOrder = new ModelOrder({
-//   customer: user.username,
-//   id: item.id,
-//   itemName: item.item,
-//   price: item.price
-// });
-
-    // let order = new ModelOrder({
-    //   customer: user.username,
-    //   itemName: 'itemName',
-    //   amount: 'amount'
-    // });
-
-    // orderLIst.on('change', function(){
-    //
-    // });
-    //
-    // order.save(null, {
-    //   success: function(response) {
-    //     console.log('you added an item!');
-    //   },
-    //   error: function(){
-    //     console.log('error occured!');
-    //   }
-    // });
-
-    return $orderedList;
-
+  return $orderedList;
 }
-
 
 export default renderOrder;

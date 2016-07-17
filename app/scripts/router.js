@@ -8,8 +8,10 @@ import renderNav from './views/nav';
 import renderSubNav from './views/subNav';
 import renderMenu from './views/menu';
 import renderOrder from './views/renderOrder';
-import orderSession from './models/modelOrder';
+import renderConfirmation from './views/orderConfirmation';
 
+import orderSession from './models/modelOrder';
+// import stickyScroll from './views/scrollSideOrder.js';
 
 const Router = Backbone.Router.extend({
   routes: {
@@ -39,8 +41,6 @@ const Router = Backbone.Router.extend({
     let $subNav = renderSubNav();
     let $sideOrder = renderOrder();
 
-
-
       if (meal === 'breakfast') {
         $menu = renderMenu('breakfast');
       } else if (meal === 'lunch') {
@@ -56,27 +56,22 @@ const Router = Backbone.Router.extend({
                       .append($subNav)
                       .append($menu)
                       .append($sideOrder);
+    // stickyScroll();
 
-    //need to do:
-      //on the change of the 'added orderItem'
+
       orderSession.on('change', function(){
         let $newSideOrder = renderOrder();
-        console.log($newSideOrder, ' === $newSideOrder');
-        // console.log($sideOrder);
         $('.side-order').replaceWith($newSideOrder);
     });
-      //make new element to put into DOM
-      //empty old orderFunction and then add the new orderFunction
+
           //render order needs to listen for the change when you hit confirmation's submit button
-
-
-    // $('.appContainer').empty().append($header).append($nav).append($subNav).append($menu).append($sideOrder);
   },
   confirmOrderFunction: function(){
     let $header = renderHeader();
     let $nav = renderNav();
     let $order = renderOrder();
-    $('.appContainer').empty().append($header).append($nav).append($order);
+    let $orderForm = renderConfirmation();
+    $('.appContainer').empty().append($header).append($nav).append($orderForm).append($order);
   }
 });
 
