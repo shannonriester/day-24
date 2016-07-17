@@ -807,7 +807,7 @@ header {
       header .login-section .login-btn:hover {
         background: rgba(15, 8, 75, 0.35); }
   header .logo-section {
-    background: url("https://dl.dropboxusercontent.com/u/19411356/day24/hipster.jpeg");
+    background: url("https://dl.dropboxusercontent.com/u/19411356/day24/outdoorCafe.jpeg");
     background-size: cover;
     height: 70vh;
     background-position-y: 20%;
@@ -815,7 +815,7 @@ header {
 
 h1 {
   margin-left: 1rem;
-  width: 100%;
+  width: 90%;
   display: inline-flex;
   justify-content: center;
   font-weight: 300;
@@ -917,32 +917,63 @@ main {
       align-self: flex-start; }
 
 #order-confirmation-pg {
-  width: 60vw;
-  display: block;
+  width: 100vw;
+  display: flex;
   float: left;
-  margin-left: 1%; }
+  margin: 3% 0; }
   #order-confirmation-pg .confirm-order {
-    width: 60vw;
-    margin-bottom: 5%; }
-  #order-confirmation-pg .order-form {
-    margin-top: 2%;
-    margin-bottom: 5%; }
+    width: 70vw; }
   #order-confirmation-pg input {
-    width: 95%; }
-  #order-confirmation-pg .orderform-btns {
-    display: flex;
-    justify-content: center; }
-  #order-confirmation-pg button {
-    width: 30%;
-    color: #E5EAFA;
-    background: rgba(15, 8, 75, 0.55);
+    width: 100vw;
     border: none;
-    padding: 3%;
-    margin: 0 5%; }
-    #order-confirmation-pg button:hover {
-      background: rgba(15, 8, 75, 0.35); }
-  #order-confirmation-pg textarea {
-    width: 95%; }
+    padding: 2%; }
+
+textarea {
+  width: 100%;
+  padding: 2%;
+  border: none; }
+
+.orderform-btns {
+  display: flex;
+  justify-content: center; }
+
+button {
+  width: 30%;
+  color: #E5EAFA;
+  background: rgba(15, 8, 75, 0.55);
+  border: none;
+  padding: 3%;
+  margin: 0 1%;
+  font-size: 1.2em; }
+  button:hover {
+    background: rgba(15, 8, 75, 0.35); }
+
+.confirmation-view {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: 1.3em;
+  margin-right: 2%; }
+  .confirmation-view h4 {
+    margin: 0;
+    text-align: center; }
+  .confirmation-view ul {
+    margin-top: 5%; }
+  .confirmation-view li {
+    font-weight: 200;
+    border-bottom: 2px dotted #E5EAFA;
+    margin: 0 10%;
+    margin-top: 1%; }
+  .confirmation-view h5 {
+    margin: 0;
+    display: flex;
+    width: 90%; }
+  .confirmation-view data {
+    display: flex;
+    justify-content: flex-end; }
+  .confirmation-view .order-totals {
+    text-align: right;
+    margin-right: 10%; }
 
 body {
   margin: 0;
@@ -950,12 +981,5 @@ body {
   font-family: Avenir;
   background: #26408B;
   color: #E5EAFA; }
-
-.appContainer {
-  position: relative; }
-  .appContainer::after {
-    display: block;
-    content: ' ';
-    clear: both; }
 
 /*# sourceMappingURL=main.css.map */
