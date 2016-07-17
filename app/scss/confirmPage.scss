@@ -1,0 +1,39 @@
+#order-confirmation-pg {
+  width: 60vw;
+  display: block;
+  float: left;
+  margin-left: 1%;
+  .confirm-order {
+    // display: flex;
+    width: 60vw;
+    margin-bottom: 5%;
+  }
+  .order-form {
+    margin-top: 2%;
+    margin-bottom: 5%;
+  }
+  input {
+    width: 95%;
+  }
+  .orderform-btns {
+    display: flex;
+    justify-content: center;
+  }
+  button {
+    width: 30%;
+    // display: inline-block;
+    // text-align: center
+    color: $primary;
+    background: $btnBackground;
+    border: none;
+    padding: 3%;
+    margin: 0 5%;
+    &:hover {
+      background: $btnHover;
+    }
+  }
+  textarea {
+    width: 95%;
+  }
+
+}
