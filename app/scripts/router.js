@@ -2,6 +2,8 @@ import $ from 'jquery';
 import Backbone from 'backbone';
 import moment from 'moment';
 
+import orderSession from './models/modelOrder';
+
 import renderLogin from './views/login';
 import renderHeader from './views/header';
 import renderNav from './views/nav';
@@ -10,7 +12,6 @@ import renderMenu from './views/menu';
 import renderOrder from './views/renderOrder';
 import renderConfirmation from './views/orderConfirmation';
 
-import orderSession from './models/modelOrder';
 // import stickyScroll from './views/scrollSideOrder.js';
 
 const Router = Backbone.Router.extend({
@@ -59,19 +60,28 @@ const Router = Backbone.Router.extend({
     // stickyScroll();
 
 
-      orderSession.on('change', function(){
-        let $newSideOrder = renderOrder();
-        $('.side-order').replaceWith($newSideOrder);
-    });
+    //   orderSession.on('change', function(){
+    //     let $newSideOrder = renderOrder();
+    //     $('.side-order').replaceWith($newSideOrder);
+    // });
 
-          //render order needs to listen for the change when you hit confirmation's submit button
   },
   confirmOrderFunction: function(){
     let $header = renderHeader();
     let $nav = renderNav();
+    // let $sideOrder = renderOrder();
     let $order = renderOrder();
     let $orderForm = renderConfirmation();
-    $('.appContainer').empty().append($header).append($nav).append($orderForm).append($order);
+    $('.appContainer').empty().append($header).append($nav).append($order).append($orderForm);
+    $('#orderBtn').css('display', 'none');
+
+
+    orderSession.on('change', function(){
+      let $newSideOrder = renderOrder();
+      $('#ordered-list').replaceWith($newSideOrder);
+    });
+    $('.side-order').addClass('confirmation-view');
+    // $('.side-order').removeClass('side-order');
   }
 });
 

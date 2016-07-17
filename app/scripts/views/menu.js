@@ -19,7 +19,6 @@ function renderMenu() {
     </div>
     `);
     // $('.aside-order').css('display', 'none');
-
     function renderMenuItem(orderItem) {
         let $menuItem = $(`
             <li>
@@ -34,12 +33,14 @@ function renderMenu() {
           `);
           if (isNaN(orderItem.price)){
             $menuItem.find('data').html(`
-              <span>small: $${_.toArray(orderItem.price)[0]} </span>
-              <span> <br>large: $${_.toArray(orderItem.price)[1]}</span>
+              <select name="select">
+              <option value="value0">size</option>
+              <option value="value1">small: $${_.toArray(orderItem.price)[0]} </option>
+              <option value="value2">large: $${_.toArray(orderItem.price)[1]}</option>
+              </select>
           `);
-          } else {
-
           }
+          // console.log($('select[name="select"]'));
 
         $menuPage.find('.mealHeadings').text(location.hash.slice(6).toUpperCase());
         $menuPage.find('ul').append($menuItem);

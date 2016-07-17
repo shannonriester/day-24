@@ -12,11 +12,11 @@ body {
   color: $primary;
 }
 
-.appContainer {
-  position: relative;
-  &::after {
-    display: block;
-    content: ' ';
-    clear: both;
-  }
-}
+// .appContainer {
+//   position: relative;
+//   &::after {
+//     display: block;
+//     content: ' ';
+//     clear: both;
+//   }
+// }

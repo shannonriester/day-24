@@ -1,9 +1,14 @@
 import $ from 'jquery';
+import Backbone from 'backbone';
 
+import router from '../router';
 import renderOrder from './renderOrder';
-// import renderMenu from './menu';
+import orderSession from '../models/modelOrder';
+
 
 function renderConfirmation(){
+
+
   let $orderForm = $(`
     <div id="order-confirmation-pg">
       <form class="order-form">
@@ -19,12 +24,16 @@ function renderConfirmation(){
       </form>
     `);
 
-
-    $orderForm.find('#orderBtn').empty().on('click', function(){
-      orderSession.save();
+    $orderForm.find('#submit').on('click', function(evt){
+      evt.preventDefault();
+      orderSession.save(null,{
+          console.log('you logged a new order!');
+        });
       });
-    $orderForm.find('#clearBtn').on('click', function(){
-      $('order-form-input').val('');
+    $orderForm.find('#clearBtn').on('click', function(evt){
+      evt.preventDefault();
+      $('.order-form-inputs').val('');
+      $('textarea').val('');
       });
 
   return $orderForm;

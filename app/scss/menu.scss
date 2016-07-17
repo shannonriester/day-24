@@ -19,7 +19,7 @@ header {
         }
     }
     .logo-section {
-        background: url('https://dl.dropboxusercontent.com/u/19411356/day24/hipster.jpeg');
+        background: url('https://dl.dropboxusercontent.com/u/19411356/day24/outdoorCafe.jpeg');
         background-size: cover;
         height: 70vh;
         background-position-y: 20%;
@@ -28,7 +28,7 @@ header {
 }
 h1 {
     margin-left: 1rem;
-    width: 100%;
+    width: 90%;
     display: inline-flex;
     justify-content: center;
     font-weight: 300;
@@ -87,7 +87,6 @@ main {
 }
 .side-order {
   width: 35%;
-  // display: none;
   float: right;
   margin-top: 5%;
   margin-right: 2%;
@@ -148,7 +147,4 @@ main {
             align-self: flex-start;
         }
     }
-}
-.side-order {
-
 }

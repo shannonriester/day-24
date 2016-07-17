@@ -10,16 +10,15 @@ import user from '../models/username';
 function renderOrder(addedOrder){
     let menuItems = orderSession.get('items');
     let $orderedList = $(`
-      <div class="side-order confirm-order">
-          <h4>Your Order: </h4>
+      <div id="ordered-list" class="side-order">
+          <h4>Your Order</h4>
           <ul>
-
           </ul>
           <div class="order-totals">
-            <p class="order-price tax-price">${orderSession.get('tax').toFixed(2)}</p>
-            <p class="order-price total-price">${orderSession.get('total').toFixed(2)}</p>
+            <p class="order-price tax-price">Tax: $${orderSession.get('tax').toFixed(2)}</p>
+            <p class="order-price total-price">Total: $${orderSession.get('total').toFixed(2)}</p>
           </div>
-          <input id="orderBtn" type="button" name="place order" value="place order..." />
+          <button id="orderBtn" name="place order">place order...</button>
        </div>
       `);
 
