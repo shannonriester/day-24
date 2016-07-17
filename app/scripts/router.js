@@ -67,9 +67,12 @@ const Router = Backbone.Router.extend({
     let $nav = renderNav();
     let $order = renderOrder();
     let $orderForm = renderConfirmation();
+
     $('.appContainer').empty().append($header).append($nav).append($order).append($orderForm);
     $('#orderBtn').css('display', 'none');
-    $('#ordered-list').addClass('.confirmation-view');
+    let $confirmationDiv = $('#ordered-list');
+    $confirmationDiv.addClass('confirmation-view');
+
     orderSession.on('change', function(){
       let $newSideOrder = renderOrder();
       $('#ordered-list').replaceWith($newSideOrder);
