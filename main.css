@@ -823,7 +823,7 @@ h1 {
   font-weight: 300;
   font-size: 3.5em;
   position: absolute;
-  bottom: 6em; }
+  top: 5em; }
 
 ul {
   padding: 0;
@@ -854,21 +854,42 @@ ul.nav {
     padding: 0 1em;
     flex: 25; }
     .ul-sub-nav li:hover {
-      color: #566db0; }
+      color: #566db0;
+      opacity: .7; }
 
 main {
-  margin-top: 3%;
-  width: 60%;
   margin: 0 auto;
-  float: left; }
+  margin-top: 3%; }
   main h2 {
     margin: 0 0 0 1em;
     text-align: center; }
 
-#aside-order {
-  display: inline-flex;
-  bottom: 50em;
-  left: 25em; }
+#menu-main {
+  float: left;
+  width: 60%; }
+
+.side-order {
+  width: 35%;
+  float: right;
+  margin-top: 5%;
+  margin-right: 2%;
+  font-size: 1.1em; }
+  .side-order h4 {
+    margin: 0;
+    font-size: 1.2em; }
+  .side-order li {
+    font-weight: 200;
+    border-bottom: 2px dotted #E5EAFA;
+    margin: 10% 0; }
+  .side-order h5 {
+    margin: 0;
+    display: inline-flex;
+    width: 90%; }
+  .side-order data {
+    display: inline-flex;
+    justify-content: flex-end; }
+  .side-order #orderBtn {
+    width: 100%; }
 
 #menu-list {
   background: #566db0;
@@ -903,5 +924,12 @@ body {
   font-family: Avenir;
   background: #26408B;
   color: #E5EAFA; }
+
+.appContainer {
+  position: relative; }
+  .appContainer::after {
+    display: block;
+    content: ' ';
+    clear: both; }
 
 /*# sourceMappingURL=main.css.map */
