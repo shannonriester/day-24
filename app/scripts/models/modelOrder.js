@@ -22,9 +22,9 @@ ModelOrder.prototype.addItem = function(addedItem){
   this.set('items', newItemsArr);
 };
 
-ModelOrder.prototype.deleteItem = function(addedItem, i){
+ModelOrder.prototype.deleteItem = function(addedItem){
   let itemsArr = this.get('items');
-   let newItemsArr = _.without(itemsArr,addedItem);
+   let newItemsArr = _.without(itemsArr, addedItem);
    this.set('items', newItemsArr);
    this.addTax();
    this.addTotal();

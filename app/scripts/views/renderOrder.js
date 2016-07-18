@@ -32,7 +32,10 @@ function renderOrder(addedOrder) {
           `);
         $orderedList.find('ul').append($addedItem);
         $orderedList.find('.trashIcon').on('click', () => {
+            orderSession.addTax();
+            orderSession.addTotal();
             orderSession.deleteItem(item, i);
+
         });
     });
 
