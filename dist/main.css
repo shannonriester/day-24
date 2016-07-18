@@ -845,7 +845,7 @@ ul.nav {
 .ul-sub-nav {
   display: flex;
   text-align: center;
-  font-size: 1.1em;
+  font-size: 1.3em;
   border-bottom: solid 1px; }
   .ul-sub-nav li {
     align-self: center;
@@ -915,8 +915,10 @@ main {
       justify-content: flex-end;
       width: 37%; }
     #menu-list li .plusIconRight {
-      display: inline-flex;
-      margin: 0 1%; }
+      font-size: 2em;
+      margin-left: 4%;
+      position: relative;
+      top: 7px; }
     #menu-list li p {
       display: block;
       margin: 0 0 0 2%;
@@ -969,11 +971,15 @@ button {
     font-weight: 200;
     border-bottom: 2px dotted #E5EAFA;
     margin: 0 10%;
-    margin-top: 1%; }
+    margin-top: 1%;
+    display: flex; }
+  .confirmation-view .trashIcon {
+    margin: 0 1%;
+    font-size: 1.2em; }
   .confirmation-view h5 {
     margin: 0;
     display: flex;
-    width: 90%; }
+    width: 95%; }
   .confirmation-view data {
     display: flex;
     justify-content: flex-end; }

@@ -24,7 +24,7 @@ function renderOrder(addedOrder) {
 
     menuItems.forEach(function(item, i) {
         let $addedItem = $(`
-            <li>
+            <li class="addedLi">
               <i class="fa fa-trash trashIcon" aria-hidden="true"></i>
               <h5>${item.item}</h5>
               <data>$${Number(item.price).toFixed(2)}</data>
@@ -32,19 +32,12 @@ function renderOrder(addedOrder) {
           `);
         $orderedList.find('ul').append($addedItem);
         $orderedList.find('.trashIcon').on('click', () => {
-            orderSession.addItem(item);
-            orderSession.addTax();
-            orderSession.addTotal();
             orderSession.deleteItem(item, i);
         });
     });
 
-
-
     $orderedList.find('#orderBtn').on('click', function() {
-        router.navigate('order', {
-            trigger: true
-        });
+        router.navigate('order', {trigger: true});
     });
     return $orderedList;
 }

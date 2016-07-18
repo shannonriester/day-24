@@ -53,11 +53,16 @@ button {
     border-bottom: 2px dotted $primary;
     margin: 0 10%;
     margin-top: 1%;
+    display: flex;
   }
+  .trashIcon {
+    margin: 0 1%;
+    font-size: 1.2em;
+}
   h5 {
     margin: 0;
     display: flex;
-    width: 90%;
+    width: 95%;
   }
   data {
     display: flex;

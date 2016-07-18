@@ -18,6 +18,7 @@ function renderMenu() {
       <aside class="aside-order"><aside>
     </div>
     `);
+
     function renderMenuItem(orderItem) {
         let $menuItem = $(`
             <li>
@@ -31,9 +32,9 @@ function renderMenu() {
               </div>
             </li>
           `);
-          let $addIcon = $menuItem.find('.plusIconRight');
+        let $addIcon = $menuItem.find('.plusIconRight');
 
-          if (isNaN(orderItem.price)){
+        if (isNaN(orderItem.price)) {
             let subpriceArr = _.toArray(orderItem.price);
             $menuItem.find('data').html(`
               <select class="sizeItem" name="select">
@@ -42,22 +43,22 @@ function renderMenu() {
               <option class="option2" value="value2">large: $${subpriceArr[1]}</option>
               </select>
           `);
-          let sizeItemArr = _.toArray($menuItem.find('.sizeItem'));
-          console.log(sizeItemArr);
-          sizeItemArr.forEach(() => {
-            $addIcon.on('click', () =>{
-              let $sizeItemVal = $('.sizeItem :selected').val();
-              if ($sizeItemVal === 'value1') {
-                orderItem.price = subpriceArr[0];
-              } else if ($sizeItemVal === 'value2') {
-                orderItem.price = subpriceArr[1];
-              } else {
-                orderSession.deleteItem(orderItem);
-              }
+            let sizeItemArr = _.toArray($menuItem.find('.sizeItem'));
+            // console.log(sizeItemArr);
+            sizeItemArr.forEach(() => {
+                $addIcon.on('click', () => {
+                    let $sizeItemVal = $('.sizeItem :selected').val();
+                    if ($sizeItemVal === 'value1') {
+                        orderItem.price = subpriceArr[0];
+                    } else if ($sizeItemVal === 'value2') {
+                        orderItem.price = subpriceArr[1];
+                    } else {
+                        orderSession.deleteItem(orderItem);
+                    }
+                });
             });
-          });
 
-          }
+        }
 
         $menuPage.find('.mealHeadings').text(location.hash.slice(6).toUpperCase());
         $menuPage.find('ul').append($menuItem);

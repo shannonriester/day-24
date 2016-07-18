@@ -66,6 +66,7 @@ const Router = Backbone.Router.extend({
     let $header = renderHeader();
     let $nav = renderNav();
     let $order = renderOrder();
+    // $order.fadeIn(1000);
     let $orderForm = renderConfirmation();
 
     $('.appContainer').empty().append($header).append($nav).append($order).append($orderForm);

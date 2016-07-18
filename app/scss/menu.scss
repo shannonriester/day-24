@@ -60,7 +60,7 @@ ul.nav {
 .ul-sub-nav {
     display: flex;
     text-align: center;
-    font-size: 1.1em;
+    font-size: 1.3em;
     border-bottom: solid 1px;
     li {
         align-self: center;
@@ -96,6 +96,8 @@ main {
     font-size: 1.2em;
   }
   li {
+    // transition: 1s ease-in;
+    // animation: 1s ease-in slidein;
     font-weight: 200;
     border-bottom: 2px dotted $primary;
     margin: 10% 0;
@@ -147,8 +149,10 @@ main {
             width: 37%;
         }
         .plusIconRight {
-            display: inline-flex;
-            margin: 0 1%;
+          font-size: 2em;
+          margin-left: 4%;
+          position: relative;
+          top: 7px;
         }
         p {
             display: block;
