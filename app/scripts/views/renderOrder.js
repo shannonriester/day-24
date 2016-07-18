@@ -27,7 +27,6 @@ function renderOrder(addedOrder) {
             <li>
               <i class="fa fa-trash trashIcon" aria-hidden="true"></i>
               <h5>${item.item}</h5>
-              <data></data>
               <data>$${Number(item.price).toFixed(2)}</data>
             </li>
           `);

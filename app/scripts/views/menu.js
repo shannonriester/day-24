@@ -31,22 +31,38 @@ function renderMenu() {
               </div>
             </li>
           `);
+          let $addIcon = $menuItem.find('.plusIconRight');
+
           if (isNaN(orderItem.price)){
+            let subpriceArr = _.toArray(orderItem.price);
             $menuItem.find('data').html(`
-              <select name="select">
-              <option value="value0">size</option>
-              <option value="value1">small: $${_.toArray(orderItem.price)[0]} </option>
-              <option value="value2">large: $${_.toArray(orderItem.price)[1]}</option>
+              <select class="sizeItem" name="select">
+              <option class="option0" value="value0">size</option>
+              <option class="option1" value="value1">small: $${subpriceArr[0]} </option>
+              <option class="option2" value="value2">large: $${subpriceArr[1]}</option>
               </select>
           `);
+          let sizeItemArr = _.toArray($menuItem.find('.sizeItem'));
+          console.log(sizeItemArr);
+          sizeItemArr.forEach(() => {
+            $addIcon.on('click', () =>{
+              let $sizeItemVal = $('.sizeItem :selected').val();
+              if ($sizeItemVal === 'value1') {
+                orderItem.price = subpriceArr[0];
+              } else if ($sizeItemVal === 'value2') {
+                orderItem.price = subpriceArr[1];
+              } else {
+                orderSession.deleteItem(orderItem);
+              }
+            });
+          });
+
           }
 
-        let $addIcon = $menuItem.find('.plusIconRight');
         $menuPage.find('.mealHeadings').text(location.hash.slice(6).toUpperCase());
         $menuPage.find('ul').append($menuItem);
-        $addIcon.on('click', function() {
+        $addIcon.on('click', () => {
             orderSession.addItem(orderItem);
-            // orderSession.deleteItem()
             orderSession.addTax();
             orderSession.addTotal();
         });
